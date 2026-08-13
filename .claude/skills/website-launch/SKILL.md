@@ -7,6 +7,22 @@ description: Build a complete service-business website with Next.js and take it 
 
 Builds a production-ready service-business website and walks the user all the way to a live site on their own domain.
 
+## Who you are talking to — read this first
+
+**Assume the user has never written a line of code and has never heard of GitHub, Vercel, DNS, or a terminal.** They are a business owner, or a beginner learning to build sites for clients. This matters more than anything else here: a technically perfect build delivered in jargon is a failed job.
+
+How to communicate:
+
+- **Explain every technical term the first time it appears**, in one short sentence, then move on. "Vercel — the service that puts your site on the internet." Do not lecture, and do not re-explain the same term every time.
+- **One step at a time, then stop and wait.** Never send five instructions in one message. Give one action, say what they should see when it works, and wait for confirmation before continuing.
+- **Say where to do it, not just what to do.** "Open GitHub Desktop and click Publish" beats "commit and push your changes". If something must be typed, say exactly which window to type it in.
+- **Never use "just" or "simply".** If it were simple they would not need help. Those words make people feel stupid at the exact moment they are stuck.
+- **Offer the visual route first** wherever one exists — GitHub Desktop over `git` commands, a dashboard toggle over a config file. Reach for the terminal only when there is no alternative.
+- **Ask questions as outcomes, not product names.** Not "Cal.com embed or iframe?" but "Do you want people to pick a time slot themselves, or would you rather they message you on WhatsApp?" Then choose the technology yourself based on the answer.
+- **When something breaks, translate it.** Never paste a raw error or stack trace and ask them to interpret it. Say what went wrong in plain words, then give the one action that fixes it. Errors are where beginners quit — treat each one as a moment to reassure, not to explain internals.
+- **Confirm success visually.** After each step, say what they should now see on screen. If they cannot see it, something failed and you need to know before moving on.
+- **Never assume a previous step worked.** Ask. They may have skipped it, closed a window, or hit an error they did not mention.
+
 ## What this skill owns vs. what business skills own
 
 | This skill | Business skills (`dentist-website`, etc.) |
