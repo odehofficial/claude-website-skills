@@ -23,6 +23,67 @@ How to communicate:
 - **Confirm success visually.** After each step, say what they should now see on screen. If they cannot see it, something failed and you need to know before moving on.
 - **Never assume a previous step worked.** Ask. They may have skipped it, closed a window, or hit an error they did not mention.
 
+## Progress tracking — mandatory
+
+The user must always know **where they are, what is done, and what comes next.** Losing that sense is the main reason beginners abandon a build halfway.
+
+### Show the chart in every message
+
+From the moment a build starts until the site is live, begin **every** reply with this, updated:
+
+```
+**Your progress**
+
+| # | Step | |
+|---|------|---|
+| 1 | Install your tools | Done |
+| 2 | Create your accounts | Done |
+| 3 | Tell me about the business | Done |
+| 4 | Approve the design | **YOU ARE HERE** |
+| 5 | Build the website | — |
+| 6 | Preview it on your computer | — |
+| 7 | Save it to GitHub | — |
+| 8 | Put it on the internet | — |
+| 9 | Connect your domain | — |
+| 10 | Make the contact form work | — |
+| 11 | Add online booking | — |
+| 12 | Get found on Google | — |
+| 13 | Final checks | — |
+```
+
+Use those plain-language names, never the technical ones. The user should never have to interpret "Phase 5 — Resend domain verification".
+
+Skip the chart only for short side conversations, then bring it back.
+
+### Never mark a step done on your own say-so
+
+A step is complete **only when the user confirms they saw the expected result.** Finish every step with a specific yes/no question about something visible on their screen:
+
+> Do you now see your repository name at the top left, with a list of files below it? (yes / no)
+
+Not "did that work?" — they often cannot tell. Ask about one concrete thing they can look at.
+
+If the answer is no, fix it before advancing. Never move to the next step with an unconfirmed one behind you.
+
+### Keep progress in a file
+
+After each confirmed step, write or update **`PROGRESS.md` in the project folder**, listing completed steps, the current step, and any account details that are safe to record (repo name, live URL, domain). Never write passwords or API keys into it.
+
+This matters more than it looks: a beginner will close Claude and come back tomorrow. Without the file, the next session has no idea what has been done and will ask them to redo things they have already finished. At the start of any session in an existing project, read `PROGRESS.md` first.
+
+## Level of instruction — click by click
+
+This audience needs **exact, literal steps**, not summaries of the goal.
+
+- Give the **full clickable URL** for every site they must open.
+- Name the button **exactly as it is labelled**, and say roughly where on the screen it is: "click **New Project**, the black button at the top right".
+- Add a fallback for anything that may have moved: "if you do not see it, look for **+ Add New** in the same corner".
+- Describe what appears **after** each click, so they can tell they are on track.
+- Number every action. One action per number.
+- Never bundle. "Sign up for Vercel and import your repo" is two lessons, not one instruction.
+
+`references/deployment.md` holds these walkthroughs. Follow them literally rather than paraphrasing — the wording there is deliberately explicit.
+
 ## What this skill owns vs. what business skills own
 
 | This skill | Business skills (`dentist-website`, etc.) |
@@ -32,7 +93,7 @@ How to communicate:
 | Email + booking integration | Industry compliance rules |
 | Pre-launch checks, client handover | Conversion priorities |
 
-If the user names a business type that has its own skill, **invoke that skill first** to get the brief, then return here to build and launch. If no matching skill exists, run the generic intake in Step 1 yourself.
+If the user names a business type that has its own skill, **invoke that skill first** to get the brief, then return here to build and launch. If no matching skill exists, run the generic intake in Stage 1 yourself.
 
 ## Fixed stack — do not substitute
 
@@ -42,7 +103,7 @@ This is deliberately fixed so one roadmap always applies. Change it only if the 
 
 ## Workflow
 
-### Step 1 — Intake
+### Stage 1 — Intake
 
 Ask before assuming. Use `AskUserQuestion` wherever the options are discrete (booking approach, logo status, photo source).
 
@@ -50,17 +111,17 @@ Do not start building until you have: business name · city/country · real cont
 
 If a business skill supplied a brief, confirm the gaps rather than re-asking everything.
 
-### Step 2 — Design system (required, before any page code)
+### Stage 2 — Design system (required, before any page code)
 
 Invoke the `ui-ux-pro-max` skill and generate the design system with `--persist` so tokens are written into the project.
 
 Show the user the recommended style, palette, and font pairing. **Wait for approval.** Do not write page code against a palette they have not seen — reworking tokens after ten components exist is expensive.
 
-### Step 3 — Prerequisites
+### Stage 3 — Prerequisites
 
-Check `node --version` and `git --version`. Node 18+ is required. If either is missing, stop and get it installed first — see `references/deployment.md` Phase 0.
+Check `node --version` and `git --version`. Node 18+ is required. If either is missing, stop and get it installed first — walk them through Steps 1 and 2 of `references/deployment.md` before going any further.
 
-### Step 4 — Build
+### Stage 4 — Build
 
 Scaffold with `create-next-app`, wire the persisted design tokens into Tailwind config and CSS variables, then build the pages the business skill specified.
 
@@ -73,17 +134,17 @@ Non-negotiable quality bar on every build:
 - Forms show a loading state, a success state, and a failure state with a fallback phone number.
 - Page titles, meta descriptions, and Open Graph tags on every route.
 
-### Step 5 — Verify locally
+### Stage 5 — Verify locally
 
 Run the production build and fix every error before deploying. A site that runs in dev but fails `next build` will fail on Vercel too.
 
-### Step 6 — Go live
+### Stage 6 — Go live
 
-Follow `references/deployment.md` phase by phase. **Walk one phase at a time and confirm it worked before moving on.** Dumping all ten phases at once is how students get lost. Each phase has a verification step — actually run it.
+Follow `references/deployment.md` from Step 7 onward. **Give one numbered action at a time and wait for confirmation.** Pasting a whole step at once is how beginners freeze. Every step there ends with a visible check — actually ask it, and do not advance on a no.
 
-### Step 7 — Handover
+### Stage 7 — Handover
 
-If the site is for a client, produce the handover document from Phase 9.
+If the site is for a client, produce the handover document from Step 14 of `references/deployment.md`.
 
 ## Hard rules
 
@@ -95,5 +156,5 @@ If the site is for a client, produce the handover document from Phase 9.
 
 ## References
 
-- `references/deployment.md` — the full go-live roadmap, Phase 0 to Phase 9
+- `references/deployment.md` — the click-by-click walkthrough, Step 1 to Step 14. The numbers match the progress chart above.
 - `references/integrations.md` — working code for the contact form, Resend, and Cal.com booking

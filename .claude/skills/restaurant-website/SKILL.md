@@ -62,7 +62,7 @@ Food photography converts better than any copy you can write, and bad photos act
 
 ### Google Business Profile beats the website for discovery
 
-Most people find a restaurant through Maps, not organic search. The site's job is to convert someone already looking. Phase 7 of the deployment roadmap covers this; for restaurants, treat it as mandatory rather than optional, and make sure hours and phone number match the site exactly.
+Most people find a restaurant through Maps, not organic search. The site's job is to convert someone already looking. Step 12 of the deployment walkthrough covers this; for restaurants, treat it as mandatory rather than optional, and make sure hours and phone number match the site exactly.
 
 ## Page structure
 

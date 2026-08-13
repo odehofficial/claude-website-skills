@@ -1,190 +1,339 @@
-# Go-Live Roadmap
+# Go-Live Walkthrough
 
-*Last reviewed: August 2026. Vercel, Resend, Cal.com and domain registrars redesign their dashboards regularly. This guide describes **what to achieve and where to look**, not exact click paths, so it stays usable. If a screen does not match, look for the same concept under a renamed menu.*
+*Last reviewed: August 2026.*
 
-Walk the user through **one phase at a time**. Confirm each verification step before moving on.
+**How to use this file.** Give the user **one numbered action at a time**, then wait. Do not paste a whole step at once — a wall of instructions is exactly what makes a beginner freeze. Every step ends with a visible check; do not advance until they confirm it.
 
----
+**On button names.** These sites redesign their dashboards. If the user says a button is not where this file claims, do not argue and do not send them back to the start. Ask what they *do* see, and work from that. The fallback lines exist for this — use them.
 
-## Phase 0 — Accounts and tooling
-
-**Install locally:**
-- **Node.js** (version 18 or newer) — required to build anything. Verify: `node --version`
-- **Git** — required to push code. Verify: `git --version`
-- **GitHub Desktop** — optional, but recommended for anyone new to Git. It commits and publishes visually, with no terminal involved, and it creates the GitHub repo for you. It also installs Git and sets up your GitHub credentials, so command-line `git push` works afterwards without a separate login.
-
-**Free accounts to create** (all have workable free tiers for a small business site):
-- **GitHub** — stores the code
-- **Vercel** — hosts the site. Sign up *with GitHub* so the two are already connected
-- **Resend** — sends contact form email
-- **Cal.com** — handles booking (skip if using WhatsApp or phone only)
-
-**Costs money:** the domain, roughly $10–15/year at Namecheap, Cloudflare, or Porkbun. Everything else on this list has a free tier that comfortably covers a small service business. Check current limits on each provider's pricing page rather than trusting a number in a course — they change.
-
-> Verify: `node --version` and `git --version` both print a version.
+**Never tell the user a step is done.** They tell you.
 
 ---
 
-## Phase 1 — Build and review locally
+# Step 1 — Install your tools
 
-```bash
-npm run dev
-```
+**What this does:** puts the three programs on their computer that everything else needs.
 
-Open the local URL. Review on a narrow window first, then desktop.
+### 1a. Node.js — the engine that builds websites
 
-```bash
-npm run build
-```
+1. Open **https://nodejs.org**
+2. You will see two big green download buttons. Click the **left one**, labelled **LTS** (it also says "Recommended For Most Users").
+3. A file downloads. Open it from your Downloads folder.
+4. An installer window opens. Click **Next** through every screen, accept the licence when asked, and click **Install** at the end.
+5. If Windows asks "Do you want to allow this app to make changes?", click **Yes**.
+6. Click **Finish**.
 
-This must pass with zero errors. A dev server tolerates mistakes that a production build rejects — and Vercel runs the production build.
+> **Check it worked:** In Claude, ask "check my node version". It should print something like `v22.x.x`.
+> **If it says "not recognized":** close Claude completely and reopen it. New programs are only visible to programs started afterwards. This fixes it almost every time.
 
-> Verify: `npm run build` completes successfully.
+### 1b. Python — needed for the design engine
 
----
+1. Open **https://www.python.org/downloads/**
+2. Click the big yellow button at the top: **Download Python 3.x.x**
+3. Open the downloaded file.
+4. **Important — before clicking anything else, tick the box at the bottom that says "Add python.exe to PATH".** It is easy to miss and skipping it causes an error later.
+5. Click **Install Now**.
+6. Click **Close** when it finishes.
 
-## Phase 2 — Push to GitHub
+> **Check it worked:** ask Claude "check my python version". It should print `Python 3.x.x`.
+> **If Windows says "Python was not found" and opens the Microsoft Store:** that is a Windows placeholder, not real Python. Close the Store. Either reinstall with the PATH box ticked, or turn the placeholder off: open **Settings → Apps → Advanced app settings → App execution aliases**, and switch **off** both entries named `python.exe` and `python3.exe`.
 
-**Before anything else, confirm secrets are ignored.** Open `.gitignore` and check that `.env.local` and `node_modules` are both listed. If `.env.local` is missing, add it now — a committed API key is public the moment you push, and deleting it in a later commit does not remove it from git history.
+### 1c. GitHub Desktop — saves and publishes your work
 
-Then pick a track. Both end in the same place. **Ask the user which they prefer rather than assuming** — someone who has never used a terminal will get further with Track A, and pushing them into the command line here is where beginners abandon the process.
+1. Open **https://desktop.github.com**
+2. Click **Download for Windows** (or macOS).
+3. Open the downloaded file. It installs on its own and opens when finished.
+4. Leave it open — the account comes next.
 
-### Track A — GitHub Desktop (recommended for anyone new to Git)
-
-1. **File → Add local repository**, and choose the project folder. If it reports that the folder is not a Git repository, click **create a repository** in that same prompt.
-2. Type a short summary in the box at the bottom left, then click **Commit to main**.
-3. Click **Publish repository** in the top bar.
-4. Decide visibility. **For a client website, leave "Keep this code private" checked** — Vercel deploys from private repos without any issue, and there is no reason for a client's code to be public. Uncheck it only for something meant to be shared, such as a template or a public skill repo.
-5. Publish.
-
-No terminal, no remote URL to copy, and it creates the GitHub repo in the same step. Every later change follows the same loop: commit in the left panel, then **Push origin**.
-
-### Track B — command line
-
-```bash
-git init
-git add .
-git commit -m "Initial site build"
-```
-
-Create an empty repo on GitHub (no README, no .gitignore — the project already has them), then:
-
-```bash
-git remote add origin https://github.com/USERNAME/REPO.git
-git branch -M main
-git push -u origin main
-```
-
-> Verify (either track): refresh the GitHub repo page and see the files. Confirm `.env.local` is **not** among them.
+> **Check it worked:** GitHub Desktop is open and showing a welcome screen.
 
 ---
 
-## Phase 3 — Deploy to Vercel
+# Step 2 — Create your accounts
 
-In Vercel, add a new project and import the GitHub repo. Vercel detects Next.js automatically — the default build settings are correct, so change nothing.
+Four accounts. All free. Do them in this order — later ones connect to earlier ones.
 
-Deploy. You get a live `something.vercel.app` URL in a minute or two.
+### 2a. GitHub — where your website files are stored safely
 
-From now on **every push to `main` redeploys automatically**. This is the part students find surprising and it is worth pointing out: there is no "upload" step ever again.
+1. Open **https://github.com/signup**
+2. Enter your email, click **Continue**.
+3. Create a password, click **Continue**. Save it in your password manager now.
+4. Choose a username. This appears in your web address, so keep it professional — your name or business name.
+5. Answer the email preference question, click **Continue**.
+6. Solve the puzzle it shows you to prove you are human.
+7. Click **Create account**.
+8. Check your email for a code, type it in.
+9. It may ask a few questions about how you plan to use GitHub. Answer anything, or look for **Skip** — it changes nothing.
 
-If the build fails here but passed locally, the cause is almost always a missing environment variable or a case-sensitive import path — Vercel builds on Linux, where `Header.tsx` and `header.tsx` are different files, while Windows and macOS treat them as the same.
+> **Check it worked:** you can see **https://github.com** while signed in, with your profile picture at the top right.
 
-> Verify: open the `.vercel.app` URL on a phone. The site loads.
+### 2b. Connect GitHub Desktop to that account
 
----
+1. Go back to **GitHub Desktop**.
+2. Click **Sign in to GitHub.com**.
+3. Your browser opens. Click **Authorize desktop**.
+4. The browser asks to reopen GitHub Desktop. Allow it.
+5. It asks for a name and email for your saved work. Use your real name and the email you signed up with. Click **Finish**.
 
-## Phase 4 — Custom domain
+> **Check it worked:** GitHub Desktop no longer shows a sign-in button, and your username appears when you open the **File → Options → Accounts** menu.
 
-Buy the domain at any registrar. Namecheap, Cloudflare, and Porkbun are all fine; avoid registrars that bundle expensive "privacy" add-ons.
+### 2c. Vercel — puts your website on the internet
 
-In the Vercel project, add the domain under the project's Domains settings. Vercel then shows the exact DNS records to create.
+1. Open **https://vercel.com/signup**
+2. Choose **Hobby** if it asks which plan — this is the free one.
+3. Enter your name when prompted.
+4. **Click "Continue with GitHub".** This matters — signing up any other way means extra work connecting them later.
+5. A GitHub window opens asking for permission. Click **Authorize Vercel**.
 
-**Use the records Vercel shows you.** Do not copy IP addresses from a tutorial, including this one — they change, and a stale A record means a dead site.
+> **Check it worked:** you land on the Vercel dashboard, which will say something like "Let's build something new" because you have no projects yet.
 
-Add those records at the registrar's DNS panel. Propagation is usually minutes, occasionally up to 48 hours. HTTPS is issued automatically once DNS resolves; no certificate to buy or configure.
+### 2d. Resend — sends the contact form emails
 
-Add both `example.com` and `www.example.com`, and let Vercel redirect one to the other so the site has a single canonical address.
+1. Open **https://resend.com/signup**
+2. Sign up with email, or click **Continue with GitHub** to reuse the account you just made.
+3. Confirm your email address if it sends you a link.
 
-> Verify: `https://yourdomain.com` loads with a padlock in the address bar.
+> **Check it worked:** you can see the Resend dashboard with a menu down the left side.
 
----
+### 2e. Cal.com — handles appointment booking
 
-## Phase 5 — Contact form email (Resend)
+*Skip this if the business will take bookings by phone or WhatsApp only.*
 
-Code for this is in `references/integrations.md`.
+1. Open **https://cal.com/signup**
+2. Sign up with email or GitHub.
+3. It asks you to pick a username — this becomes the booking link, e.g. `cal.com/smile-dental`. Use the business name.
+4. It asks for availability and connected calendars. You can click through these for now; the real settings come in Step 11.
 
-1. In Resend, add and verify the sending domain. Verification means adding DNS records at the registrar, same place as Phase 4. Resend provides a test sender for development, but sending *from your own domain* to arbitrary recipients requires this verification — plan for it rather than discovering it at launch.
-2. Create an API key.
-3. Put it in `.env.local` for local development.
-4. Add the same variables in the Vercel project's Environment Variables settings.
-5. **Redeploy.** Environment variables are read at build time; adding one does not affect the already-built site until it rebuilds. This trips up nearly everyone.
-
-Email deliverability note worth teaching: mail sent from a brand-new domain often lands in spam for the first few weeks. Domain verification (SPF and DKIM records) is what fixes this. Tell the client to check spam initially.
-
-> Verify: submit the form on the **live** site and confirm the email arrives. Testing only on localhost proves nothing about production.
-
----
-
-## Phase 6 — Booking (Cal.com)
-
-Skip if the business chose WhatsApp or phone only.
-
-1. Create the Cal.com account and set the real availability — working hours, days off, buffer between appointments, and how far ahead people may book.
-2. Create an event type per service if durations differ. A cleaning and an implant consultation are not the same length.
-3. Turn on confirmation and reminder emails. Reminders are the single biggest lever on no-shows.
-4. Embed it using the snippet Cal.com generates, or link out to the booking page. Embedding keeps people on the site; linking is more robust. Either is defensible.
-
-> Verify: make a real test booking end to end. Confirm it appears in the calendar and that the confirmation email arrives.
-
----
-
-## Phase 7 — SEO and analytics
-
-- Every page has a unique `<title>` and meta description
-- An Open Graph image, so shared links show a preview instead of a bare URL
-- `sitemap.xml` and `robots.txt` — Next.js generates both from `app/sitemap.ts` and `app/robots.ts`
-- Vercel Analytics — one toggle in the dashboard, no cookie banner needed
-- Google Search Console — verify the domain and submit the sitemap
-- **Google Business Profile** — for a local business this outranks almost everything else on the list. A clinic gets far more traffic from Maps than from organic search. Do not skip it.
-- Local business structured data (JSON-LD) with the real address, hours, and phone
-
-> Verify: search `site:yourdomain.com` in Google after a few days and see pages indexed.
+> **Check it worked:** you reach the Cal.com dashboard.
 
 ---
 
-## Phase 8 — Pre-launch checklist
+# Steps 3 to 6 — Build the website
 
-Run through this on the live domain, not localhost:
+These are handled in conversation, not on any website. Follow the workflow in `SKILL.md`:
 
-- [ ] Every nav link goes somewhere real; no dead links
-- [ ] Contact form delivers, and the success message is clear
-- [ ] Phone numbers are tap-to-call on mobile (`tel:` links)
-- [ ] WhatsApp link opens the right number, if used
-- [ ] Map shows the correct location
-- [ ] Opening hours match reality
-- [ ] Booking flow completes
-- [ ] Site works on a real phone, not just a resized browser window
-- [ ] Lighthouse: Performance and Accessibility both 90+ (Chrome DevTools)
-- [ ] A custom 404 page exists
-- [ ] Favicon set
-- [ ] No `[[PLACEHOLDER]]` text anywhere — search the codebase for it
-- [ ] No fake testimonials, fake statistics, or invented credentials
-- [ ] Privacy notice present on any form collecting personal data
+- **Step 3** — answer questions about the business
+- **Step 4** — approve the colours, fonts, and style
+- **Step 5** — the site gets built
+- **Step 6** — preview it on their own computer
+
+> **Check it worked:** they open the local address in their browser and see the website.
+> **If the page will not load:** confirm the preview is actually running, and that they typed the full address including the port number.
 
 ---
 
-## Phase 9 — Client handover
+# Step 7 — Save it to GitHub
 
-If the site was built for a client, deliver a short document containing:
+**What this does:** stores a safe copy online. Nothing is public yet, and nobody can see it.
 
-**Accounts and ownership** — which accounts exist, and who owns them. Best practice: the *client* owns the domain and Vercel account, and the builder is added as a collaborator. When the domain sits in the builder's personal account, the eventual separation is painful for both sides.
+### First, a safety check
 
-**Credentials** — via a password manager share, not email or WhatsApp.
+Before anything is saved, confirm the project has a `.gitignore` file listing `.env.local` and `node_modules`. If `.env.local` is missing from it, add it now.
 
-**How to change content** — plain-language instructions for the things they will actually want to change: hours, prices, photos, a new service.
+Explain why in one sentence: **once a password is saved to GitHub, deleting it later does not remove it — it stays in the history.**
 
-**Recurring costs** — the domain renewal date, and any paid tier. Domains that lapse because nobody knew who was paying are a common and avoidable disaster.
+### Then publish
 
-**What to do if something breaks** — who to contact, and whether ongoing support is included. Put this in writing before it comes up.
+1. Open **GitHub Desktop**.
+2. Click **File** in the top menu, then **Add local repository**.
+3. Click **Choose...** and select the website's project folder. Click **Select Folder**.
+4. If it says *"this directory does not appear to be a Git repository"*, click the blue **create a repository** link in that message, then click **Create repository** on the next screen.
+5. Look at the **bottom left**. There is a box that says **Summary (required)**. Type: `First version of my website`.
+6. Click the blue **Commit to main** button underneath it.
+7. Look at the **top of the window**. Click the blue **Publish repository** button.
+8. A box appears. Leave the name as it is.
+9. **Leave "Keep this code private" TICKED.** This is a client's website — it should not be public.
+10. Click **Publish repository**.
 
-**Suggest an ongoing arrangement.** Content updates, monitoring, and small changes are a legitimate recurring service and the reason a build becomes a client relationship rather than a one-off.
+> **Check it worked:** open **https://github.com** in your browser. Click your picture at the top right, then **Your repositories**. Your project is in the list.
+> **Ask them:** "Can you see your project name in that list? (yes / no)"
+
+---
+
+# Step 8 — Put it on the internet
+
+**What this does:** takes the files from GitHub and makes them a real website anyone can visit.
+
+1. Open **https://vercel.com/new**
+2. You will see a list headed **Import Git Repository**.
+3. Find your project name in the list and click **Import** next to it.
+4. **If your project is not listed:** click **Adjust GitHub App Permissions** (or **Configure GitHub App**) underneath the list, then choose **All repositories**, then **Save**. Go back and it will appear.
+5. A settings screen appears. **Change nothing.** Vercel has already worked out how to build the site.
+6. Click **Deploy**.
+7. Wait. It takes one to three minutes, and you will see text scrolling as it builds.
+8. When it finishes you get a congratulations screen with a picture of your website.
+9. Click that picture, or the **Visit** button.
+
+> **Check it worked:** your website opens at an address ending in `.vercel.app`. **Send that link to your own phone and open it.**
+> **Ask them:** "Did the site open on your phone? (yes / no)"
+
+**Tell them the thing that surprises everyone:** from now on, whenever they change the site and click **Push origin** in GitHub Desktop, the live site updates by itself within a minute or two. There is no uploading, ever.
+
+### If the build failed
+
+Do not paste the error log at them. It is almost always one of two things:
+
+- **A missing setting** — they have not added the email keys yet. Normal at this point; it comes in Step 10.
+- **A capital letter in a filename.** Their computer treats `Header.tsx` and `header.tsx` as the same file. Vercel does not. Find the mismatch and fix it.
+
+---
+
+# Step 9 — Connect your domain
+
+**What this does:** replaces the long `.vercel.app` address with the real one people will type.
+
+### 9a. Buy the domain
+
+1. Open **https://www.namecheap.com** (or Cloudflare, or Porkbun — any is fine).
+2. Type the domain you want into the search box and press Enter.
+3. If it is available, click **Add to cart**, then **Checkout**.
+4. **Decline every add-on it offers** except free WHOIS privacy, which is worth keeping.
+5. Pay. It costs roughly $10–15 for the year.
+
+> **Check it worked:** the domain appears in your account under **Domain List**.
+
+### 9b. Tell Vercel about it
+
+1. Open **https://vercel.com/dashboard** and click your project.
+2. Click **Settings** in the row of tabs near the top.
+3. Click **Domains** in the menu on the left.
+4. Type your domain into the box, without `www` and without `https://`. Just `yourbusiness.com`.
+5. Click **Add**.
+6. Vercel now shows you a table of settings to copy. **Leave this tab open.** You need these exact values, and they are different for every project — never copy them from a tutorial, including this one.
+
+### 9c. Enter those settings at the registrar
+
+1. Open your registrar in a **new tab** and sign in.
+2. Find your domain and open its **Manage** page.
+3. Find the section called **Advanced DNS** (Namecheap) or **DNS Records**.
+4. Add each record Vercel showed you, one at a time, copying the Type, Host, and Value **exactly**.
+5. Save.
+6. Go back to the Vercel tab and wait. It usually updates within a few minutes.
+
+> **Check it worked:** the domain shows a green tick or **Valid Configuration** in Vercel, and typing `yourbusiness.com` opens the site with a padlock in the address bar.
+> **If it still says invalid after 30 minutes:** that is normal, not broken. It can take up to 48 hours. Check back later.
+
+---
+
+# Step 10 — Make the contact form work
+
+**Say this before starting:** right now the form looks finished but does not send anything. That is expected. This step connects it.
+
+### 10a. Prove you own the domain
+
+1. Open **https://resend.com/domains**
+2. Click **Add Domain** at the top right.
+3. Type your domain, click **Add**.
+4. Resend shows a table of settings — a different set from Step 9.
+5. Go to your registrar, into **Advanced DNS** again, and add each of these records exactly as shown.
+6. Back in Resend, click **Verify**. It may take a few minutes.
+
+> **Check it worked:** the domain shows **Verified** in Resend.
+
+### 10b. Get the key
+
+1. Open **https://resend.com/api-keys**
+2. Click **Create API Key**.
+3. Name it after the website. Leave the other settings alone. Click **Add**.
+4. A long code starting `re_` appears. **Copy it now — it is shown only once.**
+5. Paste it straight into the next step. Do not put it in a message, an email, or a document.
+
+### 10c. Give the key to Vercel
+
+1. Open **https://vercel.com/dashboard**, click your project.
+2. Click **Settings**, then **Environment Variables** on the left.
+3. Add each variable, clicking **Save** after each one:
+   - Name `RESEND_API_KEY`, value: the `re_...` code
+   - Name `CONTACT_TO_EMAIL`, value: the address that should receive enquiries
+   - Name `CONTACT_FROM_EMAIL`, value: `website@yourdomain.com`
+4. Click **Deployments** in the top tabs.
+5. Find the newest one at the top. Click the **⋯** menu at its right. Click **Redeploy**, then **Redeploy** again to confirm.
+
+> **The step everyone forgets is 4 and 5.** Settings only take effect when the site is rebuilt. Without the redeploy, nothing changes and it looks broken.
+
+> **Check it worked:** open the **live site** — not the preview on your computer — fill in the contact form, and send it. The email arrives.
+> **If it does not arrive:** check the spam folder first. Brand-new domains often land there for a few weeks, and the verification in 10a is what fixes it over time.
+
+---
+
+# Step 11 — Add online booking
+
+*Skip if they chose phone or WhatsApp only.*
+
+1. Open **https://app.cal.com/availability**
+2. Click your schedule to open it.
+3. Set the real working days and hours. Untick days they are closed.
+4. Click **Save**.
+5. Click **Event Types** in the left menu.
+6. Click **+ New**.
+7. Give it the name of a service, e.g. `Check-up`, and set how long it takes.
+8. Click **Continue**, then **Save**.
+9. Repeat for each service with a different length.
+10. Open the event, find **Reminders** or **Workflows**, and turn on the reminder email. **This is the single biggest thing that reduces no-shows.**
+11. Copy the booking link shown at the top of the event — it looks like `cal.com/your-name/check-up`.
+12. Give that link to Claude to put it on the site.
+
+> **Check it worked:** open the website, click the booking button, and **make a real test appointment**. The confirmation email arrives. Then cancel it.
+
+**Always keep the phone number next to the booking button.** Booking widgets get blocked by ad blockers and privacy settings. An older customer who cannot make it work must never be left stranded.
+
+---
+
+# Step 12 — Get found on Google
+
+### 12a. Google Business Profile — do this one first
+
+For a local business this brings **more customers than the website itself**. Most people find a clinic or restaurant through Google Maps.
+
+1. Open **https://business.google.com**
+2. Click **Manage now**.
+3. Enter the business name and category.
+4. Add the address, phone number, and website — **exactly as they appear on the site**, down to the punctuation. Mismatches hurt ranking.
+5. Verify. Google usually sends a postcard, a call, or a video verification.
+
+### 12b. Search Console
+
+1. Open **https://search.google.com/search-console**
+2. Click **Add property**, choose **URL prefix**, and enter the full site address.
+3. Verify — the DNS method uses the same registrar screen as before.
+4. Once verified, click **Sitemaps** on the left, type `sitemap.xml`, and click **Submit**.
+
+> **Check it worked:** after a few days, search `site:yourdomain.com` on Google and see pages listed.
+> **Set expectations:** new sites take weeks to appear properly. This is normal.
+
+---
+
+# Step 13 — Final checks
+
+Run every one of these **on the real domain**, on a real phone.
+
+- [ ] Every menu link opens a real page
+- [ ] The contact form sends and the thank-you message appears
+- [ ] Tapping the phone number starts a call
+- [ ] The WhatsApp button opens the right number
+- [ ] The map points at the right building
+- [ ] Opening hours match reality, and match Google
+- [ ] A test booking completes
+- [ ] Nothing looks broken on a phone
+- [ ] No leftover `[[PLACEHOLDER]]` text anywhere
+- [ ] No made-up reviews, statistics, or credentials
+- [ ] The site has an icon in the browser tab
+- [ ] A wrong address shows a proper "page not found" page
+
+---
+
+# Step 14 — Hand it to the client
+
+Only for client work.
+
+**Ownership.** The client should own the domain and the Vercel account, with the builder invited as a collaborator. When the domain sits in the builder's personal account, separating later is painful for both sides.
+
+**Credentials** go through a password manager, never email or WhatsApp.
+
+**Write down for them:**
+- Their live address, and where the site is hosted
+- How to ask for content changes
+- The domain renewal date and cost — sites die every year because nobody knew who was paying
+- Who to contact when something breaks
+
+**Offer a maintenance plan** at handover, not months later. Content updates, monitoring, and renewals are a legitimate monthly service and the reason a one-off build becomes an ongoing income.
