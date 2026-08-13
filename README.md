@@ -41,7 +41,7 @@ It needs **Python 3** to run its search tool. Check with `python --version`, and
 ### Step 2 — Install these skills
 
 ```
-/plugin marketplace add YOUR_GITHUB_USERNAME/claude-website-skills
+/plugin marketplace add odehofficial/claude-website-skills
 /plugin install website-skills@claude-website-skills
 ```
 
@@ -52,13 +52,13 @@ Clone the repo and copy the skill folders into your Claude skills directory:
 
 **macOS / Linux**
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/claude-website-skills.git
+git clone https://github.com/odehofficial/claude-website-skills.git
 cp -r claude-website-skills/.claude/skills/* ~/.claude/skills/
 ```
 
 **Windows (PowerShell)**
 ```powershell
-git clone https://github.com/YOUR_GITHUB_USERNAME/claude-website-skills.git
+git clone https://github.com/odehofficial/claude-website-skills.git
 Copy-Item claude-website-skills\.claude\skills\* "$env:USERPROFILE\.claude\skills\" -Recurse -Force
 ```
 
