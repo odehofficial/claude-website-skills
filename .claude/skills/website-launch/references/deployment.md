@@ -53,7 +53,9 @@
 
 # Step 2 — Create your accounts
 
-Four accounts. All free. Do them in this order — later ones connect to earlier ones.
+**Assume they have none of these.** Not a GitHub account, not a Vercel account, nothing. Walk them through creating each one from zero — do not say "sign in to GitHub" to someone who has never had a GitHub account.
+
+Four free accounts, then the connectors. Do them in this order — the later ones connect to the earlier ones.
 
 ### 2a. GitHub — where your website files are stored safely
 
@@ -107,6 +109,26 @@ Four accounts. All free. Do them in this order — later ones connect to earlier
 4. It asks for availability and connected calendars. You can click through these for now; the real settings come in Step 11.
 
 > **Check it worked:** you reach the Cal.com dashboard.
+
+### 2f. Turn on the connectors — optional, but saves a lot of clicking
+
+**What this does:** lets Claude work with Vercel, GitHub and Supabase directly, instead of telling you where to click. A fifteen-click job in a dashboard becomes about two minutes.
+
+**Explain the trade-off honestly:** everything in this guide works without connectors. They make it faster, not possible. If someone would rather not connect their accounts, do not push — give them the manual route.
+
+1. In Claude, open **Settings**.
+2. Look for **Connectors** in the menu.
+3. Find the connector you want. Start with **Vercel**.
+4. Click **Connect**.
+5. A browser window opens asking for permission. Sign in and click **Authorize**.
+6. Back in Claude, it now shows as **Connected**.
+7. Repeat for **Supabase**, but only if a client dashboard is planned.
+
+> **Check it worked:** ask Claude *"list my Vercel projects"*. It answers with your actual projects instead of telling you to open a website.
+>
+> **If your Settings screen does not look like this:** take a screenshot of it and paste it into the chat. Claude's menus move between versions and app types, and Claude will find the right place with you rather than guessing.
+
+**Once a connector is on, use it.** Do not walk someone through fifteen dashboard clicks when you can do the job yourself — but always tell them what you did and where to find it, because they will need to support the client later without you.
 
 ---
 
