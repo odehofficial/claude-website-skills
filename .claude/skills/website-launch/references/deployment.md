@@ -298,7 +298,7 @@ This is the fork in the road. Ask it as an outcome, never by naming products:
 
 **If A** — continue below with Cal.com.
 
-**If B** — stop here and switch to the **`client-dashboard`** skill. It picks up at this exact point, adds the database and the owner's login, and rejoins this walkthrough at Step 15. Do not do both; B replaces the booking part of A entirely.
+**If B** — stop here and switch to the **`client-dashboard`** skill. It picks up at this exact point, adds the database and the owner's login, and rejoins this walkthrough at the **"Get found on Google"** step. Do not do both; B replaces the booking part of A entirely. Both paths still finish with the security check and handover.
 
 Guidance for the recommendation: B suits a business that already juggles a diary and loses track — a clinic, a salon with several staff. A is right for most others. Ask what the owner does today before recommending anything, and do not sell a database to someone happy with a paper diary.
 
@@ -368,7 +368,23 @@ Run every one of these **on the real domain**, on a real phone.
 
 ---
 
-# Step 14 — Hand it to the client
+# Step 14 — Security check
+
+**Never hand over a site without this.** Customers are giving this business their name, their phone number, and sometimes why they need a doctor. Protecting that is part of the job.
+
+**Follow `references/security-check.md` in full.** Run every automated check yourself before involving the user — scan the code and git history for leaked keys, confirm no server-only key reaches the browser, check that no personal data is written to the logs, verify server-side validation, check the security headers, and re-run the database leak test if the site has one.
+
+Then bring the user in for the two things only they can do: **turning on two-factor authentication** on every account, and confirming who else has access.
+
+Report findings grouped by severity in plain language, with the fix beside each — never paste raw tool output at them.
+
+> **Check it worked:** the report shows nothing under CRITICAL.
+>
+> **If anything is CRITICAL, say plainly that the site must not be handed over until it is fixed**, and fix it together. This is the one place where being agreeable is the wrong call.
+
+---
+
+# Step 15 — Hand it to the client
 
 Only for client work.
 

@@ -28,6 +28,8 @@ This skill is entered from **Step 11 of `website-launch/references/deployment.md
 | 14 | Test that data is private   | — |
 | 15 | Get found on Google         | — |
 | 16 | Final checks                | — |
+| 17 | Security check              | — |
+| 18 | Hand over to the client     | — |
 ```
 
 Every rule from `website-launch` still applies here. In particular, **write every instruction in the house format from `website-launch/references/answer-format.md`** — deep links carrying the user's own Supabase project ref, buttons named exactly with their colour, both keyboard shortcuts, exact SQL to paste in code format, and a literal `You should see:` closing every task.
@@ -62,7 +64,9 @@ Row Level Security stays switched on for every table regardless. It is the safet
 5. **Build the booking flow** — `references/booking-and-dashboard.md`.
 6. **Build the dashboard** — same file.
 7. **Deploy and test on the live site**, not locally.
-8. Rejoin the walkthrough at Step 15.
+8. Rejoin the walkthrough at the **"Get found on Google"** step, then finish with the security check and handover as normal.
+
+**The security check matters more on this tier.** A Tier 2 site holds a real database of customer names, phone numbers, and appointment reasons. Run `website-launch/references/security-check.md` in full — including re-running the leak test — before handing anything over.
 
 ## Hard rules
 

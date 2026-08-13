@@ -49,6 +49,8 @@ From the moment a build starts until the site is live, begin **every** reply wit
 | 11 | Add online booking | — |
 | 12 | Get found on Google | — |
 | 13 | Final checks | — |
+| 14 | Security check | — |
+| 15 | Hand over to the client | — |
 ```
 
 Use those plain-language names, never the technical ones. The user should never have to interpret "Phase 5 — Resend domain verification".
@@ -135,7 +137,7 @@ This is deliberately fixed so one roadmap always applies. Change it only if the 
 
 **Tier 2 — site plus a private dashboard for the business owner.** Adds Supabase and a booking system the client owns, so the owner logs in and manages appointments and enquiries themselves. Handled by the **`client-dashboard`** skill, which replaces Cal.com rather than adding to it.
 
-The two share Steps 1–10 exactly. The choice is made at **Step 11**, and Tier 2 rejoins this walkthrough at Step 15 — so nothing is ever explained twice. Do not raise Tier 2 before Step 11; introducing a database while a beginner is still installing Node is how you lose them.
+The two share Steps 1–10 exactly. The choice is made at **Step 11**, and Tier 2 rejoins at the **"Get found on Google"** step — so nothing is ever explained twice. Both tiers finish with the same security check and handover. Do not raise Tier 2 before Step 11; introducing a database while a beginner is still installing Node is how you lose them.
 
 ## Workflow
 
@@ -180,9 +182,11 @@ Run the production build and fix every error before deploying. A site that runs 
 
 Follow `references/deployment.md` from Step 7 onward. **Give one numbered action at a time and wait for confirmation.** Pasting a whole step at once is how beginners freeze. Every step there ends with a visible check — actually ask it, and do not advance on a no.
 
-### Stage 7 — Handover
+### Stage 7 — Security check, then handover
 
-If the site is for a client, produce the handover document from Step 14 of `references/deployment.md`.
+**Run the full audit in `references/security-check.md` before handing anything over.** It is required on every site, brochure sites included — a contact form alone is enough to leak personal data. Run the automated checks yourself rather than handing the user a checklist.
+
+Then produce the handover document from Step 15 of `references/deployment.md`.
 
 ## Hard rules
 
@@ -196,5 +200,6 @@ If the site is for a client, produce the handover document from Step 14 of `refe
 
 - `references/answer-format.md` — **the house format for every instruction. Read this first.**
 - `references/ui-quality.md` — visual faults to prevent on every build
-- `references/deployment.md` — the click-by-click walkthrough, Step 1 to Step 14. The numbers match the progress chart above.
+- `references/security-check.md` — **the pre-handover data-security audit. Required on every site.**
+- `references/deployment.md` — the click-by-click walkthrough, Step 1 to Step 15. The numbers match the progress chart above.
 - `references/integrations.md` — working code for the contact form, Resend, and Cal.com booking
