@@ -30,7 +30,7 @@ This skill is entered from **Step 11 of `website-launch/references/deployment.md
 | 16 | Final checks                | — |
 ```
 
-Every rule from `website-launch` still applies here — one action at a time, plain language, the user confirms each step, never say "just".
+Every rule from `website-launch` still applies here. In particular, **write every instruction in the house format from `website-launch/references/answer-format.md`** — deep links carrying the user's own Supabase project ref, buttons named exactly with their colour, both keyboard shortcuts, exact SQL to paste in code format, and a literal `You should see:` closing every task.
 
 ## Stack addition
 

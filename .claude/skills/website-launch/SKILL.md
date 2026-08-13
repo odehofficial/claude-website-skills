@@ -14,7 +14,7 @@ Builds a production-ready service-business website and walks the user all the wa
 How to communicate:
 
 - **Explain every technical term the first time it appears**, in one short sentence, then move on. "Vercel — the service that puts your site on the internet." Do not lecture, and do not re-explain the same term every time.
-- **One step at a time, then stop and wait.** Never send five instructions in one message. Give one action, say what they should see when it works, and wait for confirmation before continuing.
+- **Give numbered tasks, each with its own visible check.** A list of tasks is fine when the sequence is fixed and every task ends with a literal "You should see". **Stop and wait** whenever their answer changes what comes next, the action is irreversible (publishing, paying, deleting, going live), something has failed, or they sound stuck. Never send a wall of prose with instructions buried inside it.
 - **Say where to do it, not just what to do.** "Open GitHub Desktop and click Publish" beats "commit and push your changes". If something must be typed, say exactly which window to type it in.
 - **Never use "just" or "simply".** If it were simple they would not need help. Those words make people feel stupid at the exact moment they are stuck.
 - **Offer the visual route first** wherever one exists — GitHub Desktop over `git` commands, a dashboard toggle over a config file. Reach for the terminal only when there is no alternative.
@@ -67,22 +67,42 @@ If the answer is no, fix it before advancing. Never move to the next step with a
 
 ### Keep progress in a file
 
-After each confirmed step, write or update **`PROGRESS.md` in the project folder**, listing completed steps, the current step, and any account details that are safe to record (repo name, live URL, domain). Never write passwords or API keys into it.
+After each confirmed step, write or update **`PROGRESS.md` in the project folder**, listing completed steps and the current step.
 
-This matters more than it looks: a beginner will close Claude and come back tomorrow. Without the file, the next session has no idea what has been done and will ask them to redo things they have already finished. At the start of any session in an existing project, read `PROGRESS.md` first.
+**Record every identifier the moment you learn it**, because every deep link is built from them:
 
-## Level of instruction — click by click
+```
+GitHub:   <username> / <repo-name>
+Vercel:   <project-name>
+Supabase: <project-ref>
+Domain:   <domain>
+Live URL: <url>
+```
 
-This audience needs **exact, literal steps**, not summaries of the goal.
+Never write passwords or API keys into this file.
 
-- Give the **full clickable URL** for every site they must open.
-- Name the button **exactly as it is labelled**, and say roughly where on the screen it is: "click **New Project**, the black button at the top right".
-- Add a fallback for anything that may have moved: "if you do not see it, look for **+ Add New** in the same corner".
-- Describe what appears **after** each click, so they can tell they are on track.
-- Number every action. One action per number.
-- Never bundle. "Sign up for Vercel and import your repo" is two lessons, not one instruction.
+This matters more than it looks: a beginner will close Claude and come back tomorrow. Without the file, the next session has no idea what has been done and will ask them to redo things they have already finished, and it will send them to generic homepages instead of their own screens. At the start of any session in an existing project, read `PROGRESS.md` first.
 
-`references/deployment.md` holds these walkthroughs. Follow them literally rather than paraphrasing — the wording there is deliberately explicit.
+## How to write every instruction
+
+**Read `references/answer-format.md` and follow it exactly.** It is the house format, not a style suggestion, and it applies to *every* instruction you give — during a build, during deployment, and when answering a one-off question weeks later.
+
+The short version:
+
+```
+**1. Short task title**
+
+Click: https://exact.deep/link/to/the/screen
+
+1. First single action
+2. Green button "Exact Button Text"
+
+You should see: the literal thing that appears when it worked.
+```
+
+Non-negotiables from that file: deep links carrying the user's own project IDs rather than homepages · buttons named exactly with their colour · icons described by shape and tooltip · `Ctrl+A (Windows) or Cmd+A (Mac)` for every shortcut · exact text to type in code format · a literal `You should see:` ending every task · likely errors handled inline with their own links · how long slow steps take.
+
+`references/deployment.md` and the `client-dashboard` skill are already written in this format. Follow their wording rather than paraphrasing it.
 
 ## What this skill owns vs. what business skills own
 
@@ -164,5 +184,6 @@ If the site is for a client, produce the handover document from Step 14 of `refe
 
 ## References
 
+- `references/answer-format.md` — **the house format for every instruction. Read this first.**
 - `references/deployment.md` — the click-by-click walkthrough, Step 1 to Step 14. The numbers match the progress chart above.
 - `references/integrations.md` — working code for the contact form, Resend, and Cal.com booking
