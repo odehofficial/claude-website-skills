@@ -76,6 +76,8 @@ git --version
 
 Missing Node? Get it from [nodejs.org](https://nodejs.org).
 
+**New to Git?** Install [GitHub Desktop](https://desktop.github.com) as well. It publishes your site to GitHub visually — no terminal commands to memorise — and it installs Git and signs you in at the same time. The deployment roadmap covers both the visual and the command-line route, so you can use whichever you prefer.
+
 ---
 
 ## How to use

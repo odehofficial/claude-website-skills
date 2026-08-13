@@ -11,6 +11,7 @@ Walk the user through **one phase at a time**. Confirm each verification step be
 **Install locally:**
 - **Node.js** (version 18 or newer) — required to build anything. Verify: `node --version`
 - **Git** — required to push code. Verify: `git --version`
+- **GitHub Desktop** — optional, but recommended for anyone new to Git. It commits and publishes visually, with no terminal involved, and it creates the GitHub repo for you. It also installs Git and sets up your GitHub credentials, so command-line `git push` works afterwards without a separate login.
 
 **Free accounts to create** (all have workable free tiers for a small business site):
 - **GitHub** — stores the code
@@ -44,13 +45,21 @@ This must pass with zero errors. A dev server tolerates mistakes that a producti
 
 ## Phase 2 — Push to GitHub
 
-Confirm secrets are ignored before the first commit:
+**Before anything else, confirm secrets are ignored.** Open `.gitignore` and check that `.env.local` and `node_modules` are both listed. If `.env.local` is missing, add it now — a committed API key is public the moment you push, and deleting it in a later commit does not remove it from git history.
 
-```bash
-cat .gitignore
-```
+Then pick a track. Both end in the same place. **Ask the user which they prefer rather than assuming** — someone who has never used a terminal will get further with Track A, and pushing them into the command line here is where beginners abandon the process.
 
-`.env.local` and `node_modules` must be listed. If `.env.local` is missing from it, add it now — a committed API key is public the moment you push, and deleting it later does not remove it from git history.
+### Track A — GitHub Desktop (recommended for anyone new to Git)
+
+1. **File → Add local repository**, and choose the project folder. If it reports that the folder is not a Git repository, click **create a repository** in that same prompt.
+2. Type a short summary in the box at the bottom left, then click **Commit to main**.
+3. Click **Publish repository** in the top bar.
+4. Decide visibility. **For a client website, leave "Keep this code private" checked** — Vercel deploys from private repos without any issue, and there is no reason for a client's code to be public. Uncheck it only for something meant to be shared, such as a template or a public skill repo.
+5. Publish.
+
+No terminal, no remote URL to copy, and it creates the GitHub repo in the same step. Every later change follows the same loop: commit in the left panel, then **Push origin**.
+
+### Track B — command line
 
 ```bash
 git init
@@ -66,7 +75,7 @@ git branch -M main
 git push -u origin main
 ```
 
-> Verify: refresh the GitHub repo page and see the files. Confirm `.env.local` is **not** among them.
+> Verify (either track): refresh the GitHub repo page and see the files. Confirm `.env.local` is **not** among them.
 
 ---
 
