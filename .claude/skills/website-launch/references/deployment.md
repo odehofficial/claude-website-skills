@@ -260,6 +260,28 @@ Do not paste the error log at them. It is almost always one of two things:
 
 *Skip if they chose phone or WhatsApp only.*
 
+## First, ask which kind
+
+This is the fork in the road. Ask it as an outcome, never by naming products:
+
+> Two ways to handle appointments:
+>
+> **A — Simple.** Customers pick a time on the site, and the appointment lands in the business's calendar with automatic reminder emails. Quick to set up, and it uses a free outside service.
+>
+> **B — Their own system.** Same for the customer, but the owner also gets a private login on their own website where they can see the day's appointments, cancel, reschedule, and read every enquiry in one place. More work to build, and worth more.
+>
+> Which fits this business?
+
+**If A** — continue below with Cal.com.
+
+**If B** — stop here and switch to the **`client-dashboard`** skill. It picks up at this exact point, adds the database and the owner's login, and rejoins this walkthrough at Step 15. Do not do both; B replaces the booking part of A entirely.
+
+Guidance for the recommendation: B suits a business that already juggles a diary and loses track — a clinic, a salon with several staff. A is right for most others. Ask what the owner does today before recommending anything, and do not sell a database to someone happy with a paper diary.
+
+---
+
+## Option A — Cal.com
+
 1. Open **https://app.cal.com/availability**
 2. Click your schedule to open it.
 3. Set the real working days and hours. Untick days they are closed.

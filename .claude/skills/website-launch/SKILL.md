@@ -101,6 +101,14 @@ Next.js (App Router, TypeScript) · Tailwind CSS · deployed on Vercel · email 
 
 This is deliberately fixed so one roadmap always applies. Change it only if the user explicitly asks; if they do, tell them the deployment steps will differ from what the roadmap describes.
 
+## Two tiers
+
+**Tier 1 — brochure site.** The stack above. Everything in this skill. Right for most small businesses, and the only tier a beginner should attempt first.
+
+**Tier 2 — site plus a private dashboard for the business owner.** Adds Supabase and a booking system the client owns, so the owner logs in and manages appointments and enquiries themselves. Handled by the **`client-dashboard`** skill, which replaces Cal.com rather than adding to it.
+
+The two share Steps 1–10 exactly. The choice is made at **Step 11**, and Tier 2 rejoins this walkthrough at Step 15 — so nothing is ever explained twice. Do not raise Tier 2 before Step 11; introducing a database while a beginner is still installing Node is how you lose them.
+
 ## Workflow
 
 ### Stage 1 — Intake

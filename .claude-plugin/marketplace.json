@@ -5,14 +5,14 @@
     "name": "odehofficial"
   },
   "metadata": {
-    "description": "Nine skills that build complete service-business websites with Next.js and take them live on Vercel with working email and booking",
+    "description": "Ten skills that build complete service-business websites with Next.js and take them live on Vercel with working email and booking",
     "version": "1.0.0"
   },
   "plugins": [
     {
       "name": "website-skills",
       "source": "./",
-      "description": "Build and launch complete service-business websites. Includes a shared build and deployment engine plus nine industry skills covering dental clinics, restaurants, gyms, law firms, salons, real estate, home services, consultants, and small online stores. Each carries its own conversion rules, page structure, and compliance requirements.",
+      "description": "Build and launch complete service-business websites. Includes a shared build and deployment engine plus nine industry skills covering dental clinics, restaurants, gyms, law firms, salons, real estate, home services, consultants, and small online stores. Each carries its own conversion rules, page structure, and compliance requirements. An optional client-dashboard skill adds Supabase booking and a private admin area.",
       "version": "1.0.0",
       "author": {
         "name": "Mohammad Odeh"

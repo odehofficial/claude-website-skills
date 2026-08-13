@@ -1,6 +1,6 @@
 # Claude Website Skills
 
-Nine skills that take Claude Code from *"build me a website for a dental clinic"* all the way to a live site on a real domain — with working contact email and online booking.
+Ten skills that take Claude Code from *"build me a website for a dental clinic"* all the way to a live site on a real domain — with working contact email and online booking.
 
 Each skill knows the industry: what converts, what the page structure should be, and which legal and compliance rules apply. You answer questions; Claude builds and then walks you through going live, one step at a time.
 
@@ -20,6 +20,7 @@ Each skill knows the industry: what converts, what the page structure should be,
 | `home-services-website` | Plumbers, electricians, HVAC, cleaning, handyman, landscaping |
 | `consultant-website` | Consultants, coaches, freelancers, agencies |
 | `ecommerce-website` | Small online stores (read the scope warning inside first) |
+| `client-dashboard` | **Optional upgrade.** Adds a booking system your client owns plus a private login where they manage appointments and enquiries themselves |
 
 **Stack:** Next.js + Tailwind, hosted on Vercel, email via Resend, booking via Cal.com. Fixed on purpose, so one deployment roadmap always applies.
 
@@ -100,6 +101,7 @@ Claude picks the matching skill, interviews you about the business, generates a 
 | Vercel | Hosts the site | Free tier |
 | Resend | Contact form email | Free tier |
 | Cal.com | Online booking | Free tier |
+| Supabase | Database + login (only for the dashboard upgrade) | Free tier |
 | Domain registrar | Your domain name | ~$10–15/year |
 
 Only the domain costs money. Check each provider's current pricing — free tier limits change.
@@ -112,7 +114,7 @@ Only the domain costs money. Check each provider's current pricing — free tier
 
 **A contact form needs a backend to actually send mail.** Until you complete the Resend setup, the form is UI only. This surprises people — plan for it.
 
-**Third-party dashboards change.** The roadmap describes goals and where to look rather than exact click paths, so it stays useful. If a screen doesn't match, look for the same concept under a renamed menu.
+**Third-party dashboards change.** The walkthrough names exact buttons and where to find them, but these services redesign their screens. If something isn't where the instructions say, tell Claude what you *do* see on screen and it will adapt — you never need to start over.
 
 **Compliance rules vary by country.** Each skill includes the industry rules it knows about, but medical, legal, and consumer-protection requirements differ by jurisdiction. Confirm against your local authority before publishing a regulated site.
 
