@@ -6,7 +6,9 @@
 
 **On button names.** These sites redesign their dashboards. If the user says a button is not where this file claims, do not argue and do not send them back to the start. Ask what they *do* see, and work from that. The fallback lines exist for this — use them.
 
-**Never tell the user a step is done.** They tell you.
+**Never assume a step is done.** They confirm it, or you verify it with a tool. If they move on without saying, go back and check before continuing.
+
+**Show the current step in full, and everything after it as headlines only.** Keep each step to one or two minutes of work.
 
 ---
 

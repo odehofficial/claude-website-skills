@@ -118,18 +118,86 @@ Without this, a beginner assumes a slow step is a broken step and starts clickin
 
 ---
 
-## When to batch, and when to stop
+## One step at a time — full detail for the current step only
 
-**Batch** a numbered list of tasks when the sequence is fixed and each task has its own `You should see:`. The sample above is six tasks in one message and it works, because every task is independently checkable.
+Give the complete detail for **the step they are on right now**. Everything after it is a **headline with no detail**, so they can see what is coming without drowning in it.
 
-**Stop and wait** when:
+```
+**Step 7 — Save your work to GitHub**
 
-- their answer changes what comes next ("is it Public or Private?")
-- the step is irreversible — deleting, publishing, paying, going live
-- something failed and you are diagnosing
-- they have told you they are stuck or confused
+Click: https://github.com/odehofficial/smile-dental
 
-**Ask them to report back at the checkpoints.** Batching the instructions does not mean skipping verification — end a batch with which "You should see" results you need confirmed.
+1. Open GitHub Desktop
+2. Blue button "Publish repository", top of the window
+3. Leave "Keep this code private" ticked
+
+You should see: your project name in the list at github.com
+
+---
+Coming next: 8. Put it on the internet · 9. Connect your domain · 10. Make the contact form work
+```
+
+Then **stop**. Do not begin the next step until this one is confirmed.
+
+### Keep every step to one or two minutes of work
+
+If a step takes longer than that, split it. A ten-minute step has too many places to go wrong, and when it fails neither of you can tell which part broke. Creating an account is one step. Copying the keys out of it is another.
+
+---
+
+## Check they actually did it — do not take silence as success
+
+People skip steps. They also move on without saying whether the last one worked.
+
+**If they jump ahead without confirming, go back and check the previous step yourself before continuing.** Do not carry on and hope.
+
+**Verify with tools first, questions second.** You can often check without asking:
+
+| To confirm | Check |
+|---|---|
+| Files created, keys added | Read the file |
+| Work saved or uploaded | `git status`, `git log`, or the repo page |
+| Site is live | Fetch the URL |
+| Database, tables, security rules | The Supabase connector, if enabled |
+| Deployment succeeded | The Vercel connector, or the deployments page |
+
+Only ask when no tool can tell you — anything that lives behind their login, or that only they can see on screen.
+
+**Then update the chart honestly.** Mark a step `Done` only when it is verified. If you could not confirm it, mark it `Not confirmed` and say so — a chart claiming things are finished when they are not is worse than no chart.
+
+---
+
+## Offer a connector when it removes real work
+
+If a task means a lot of clicking through a dashboard, and a connector could do it directly, **offer it before starting the manual route**:
+
+> This next part is about fifteen clicks in the Supabase dashboard. If you turn on the Supabase connector, I can create the tables for you and check the security settings myself — about two minutes instead of fifteen. Want to do that first?
+
+Good candidates: **Supabase** (create projects, run SQL, check security advisors), **Vercel** (deployments, environment variables, build logs), **GitHub** (repositories, settings).
+
+Then show them how to switch it on, in the house format. Connectors live in Claude's settings under **Connectors** — confirm the exact menu location in the version they are running rather than guessing, and if you are unsure, say "look for Connectors in Settings" instead of inventing a click path.
+
+**Always offer the manual route as well.** Some people cannot or will not enable a connector, and the course must still work for them.
+
+---
+
+## Ask for a screenshot or a recording
+
+You cannot see their screen. Ask when it would settle something faster than a paragraph of questions:
+
+**Ask for a screenshot when:**
+- something is not working and their description is unclear
+- an error appeared and you need the exact wording
+- a screen does not match what this guide describes
+- they say a design "looks wrong" — you need to see what they see
+
+> Take a screenshot of that whole screen and paste it here. That will be quicker than describing it.
+
+**Ask for a screen recording when:**
+- they want to copy the look or feel of another website — a recording captures the animations, hover effects, and scrolling that a still image misses
+- a problem only appears while doing something (a form that fails halfway, a menu that flickers)
+
+> If you have seen a site whose look you want, record your screen for ten or twenty seconds scrolling through it. I will see the animations and spacing, not just the colours.
 
 ---
 
@@ -139,4 +207,5 @@ Without this, a beginner assumes a slow step is a broken step and starts clickin
 - **Never** write "just", "simply", or "obviously".
 - **Never** say "navigate to" — say "Click:" and give the link.
 - **Never** describe a button by what it does instead of what it says.
-- **Never** claim a step is done. They confirm it.
+- **Never** claim a step is done. They confirm it, or you verify it with a tool.
+- **Never** show the detail of a step they are not on yet.

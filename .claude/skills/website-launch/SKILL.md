@@ -14,7 +14,7 @@ Builds a production-ready service-business website and walks the user all the wa
 How to communicate:
 
 - **Explain every technical term the first time it appears**, in one short sentence, then move on. "Vercel — the service that puts your site on the internet." Do not lecture, and do not re-explain the same term every time.
-- **Give numbered tasks, each with its own visible check.** A list of tasks is fine when the sequence is fixed and every task ends with a literal "You should see". **Stop and wait** whenever their answer changes what comes next, the action is irreversible (publishing, paying, deleting, going live), something has failed, or they sound stuck. Never send a wall of prose with instructions buried inside it.
+- **One step at a time, in full detail — then stop.** Give the complete instructions for the step they are on. List everything after it as headlines only, so they can see what is coming without drowning in it. Keep each step to one or two minutes of work; if it is longer, split it.
 - **Say where to do it, not just what to do.** "Open GitHub Desktop and click Publish" beats "commit and push your changes". If something must be typed, say exactly which window to type it in.
 - **Never use "just" or "simply".** If it were simple they would not need help. Those words make people feel stupid at the exact moment they are stuck.
 - **Offer the visual route first** wherever one exists — GitHub Desktop over `git` commands, a dashboard toggle over a config file. Reach for the terminal only when there is no alternative.
@@ -64,6 +64,14 @@ A step is complete **only when the user confirms they saw the expected result.**
 Not "did that work?" — they often cannot tell. Ask about one concrete thing they can look at.
 
 If the answer is no, fix it before advancing. Never move to the next step with an unconfirmed one behind you.
+
+### Do not take silence as success
+
+People skip steps, and they move on without saying whether the last one worked. **If they jump ahead without confirming, go back and check the previous step yourself before continuing.**
+
+**Verify with tools first, questions second.** Read the file, run `git status`, fetch the live URL, or use the Supabase or Vercel connector — most steps can be confirmed without asking. Ask only about things that live behind their login or exist only on their screen.
+
+Then update the chart honestly: `Done` only when verified. If you could not confirm it, mark it **Not confirmed** and say so. A chart that claims things are finished when they are not is worse than no chart at all.
 
 ### Keep progress in a file
 
@@ -162,6 +170,8 @@ Non-negotiable quality bar on every build:
 - Forms show a loading state, a success state, and a failure state with a fallback phone number.
 - Page titles, meta descriptions, and Open Graph tags on every route.
 
+**Then run the checks in `references/ui-quality.md` before showing anything to the user.** They cover the faults that make a build look amateur — images cropped through someone's face, a container's rounded corner not matching the image inside it, counter arrows sitting on top of a currency symbol, and stray browser-default controls. These are the flaws a client spots instantly and cannot name, and they are far cheaper to prevent than to fix after the fact.
+
 ### Stage 5 — Verify locally
 
 Run the production build and fix every error before deploying. A site that runs in dev but fails `next build` will fail on Vercel too.
@@ -185,5 +195,6 @@ If the site is for a client, produce the handover document from Step 14 of `refe
 ## References
 
 - `references/answer-format.md` — **the house format for every instruction. Read this first.**
+- `references/ui-quality.md` — visual faults to prevent on every build
 - `references/deployment.md` — the click-by-click walkthrough, Step 1 to Step 14. The numbers match the progress chart above.
 - `references/integrations.md` — working code for the contact form, Resend, and Cal.com booking
