@@ -347,6 +347,24 @@ For a local business this brings **more customers than the website itself**. Mos
 > **Check it worked:** after a few days, search `site:yourdomain.com` on Google and see pages listed.
 > **Set expectations:** new sites take weeks to appear properly. This is normal.
 
+### 12c. Being found by AI assistants
+
+**What this does:** gives the site the best chance of being recommended when someone asks ChatGPT or Claude for "the best dentist in [city]".
+
+Most of this was built in — the structured data, the FAQ, one page per service. Two things remain:
+
+1. **Check the structured data passes.** Open **https://search.google.com/test/rich-results**, paste the live address, click **Test URL**.
+
+> **You should see:** the business listed as a valid item, and the FAQ detected.
+
+2. **Decide about the AI crawlers — ask the client, do not decide for them.**
+
+> "To be recommended by AI assistants, they have to be allowed to read the site. The trade-off is that the content may also be used to train those systems. For a local business wanting customers, allowing it is usually the right call — but it's your decision."
+
+Then set `app/robots.ts` to match their answer. See `references/performance-and-discovery.md` § 4.1.
+
+**Be honest about what this buys.** Nobody can guarantee an AI recommendation. Tell the client what actually weighs most for local questions — **a complete Google Business Profile and real reviews outrank anything on the website itself.** Saying so is the honest advice and it is what actually works.
+
 ---
 
 # Step 13 — Final checks
@@ -365,6 +383,20 @@ Run every one of these **on the real domain**, on a real phone.
 - [ ] No made-up reviews, statistics, or credentials
 - [ ] The site has an icon in the browser tab
 - [ ] A wrong address shows a proper "page not found" page
+
+**Then test the speed — on the live address, and show the user the score.**
+
+1. Open **https://pagespeed.web.dev**
+2. Paste the live address, click **Analyse**
+3. Wait about a minute, then click the **Mobile** tab
+
+> **You should see:** Performance **95 or above**.
+>
+> **If it is lower:** read the top item under "Opportunities" and fix that first. It is almost always an oversized image. `references/performance-and-discovery.md` § 1.7 has the fixes.
+
+This number is worth showing the client — most websites in their market will not come close to it.
+
+**If the site has more than one language, run every check above in each language**, and PageSpeed on both. The other language is not a second-class version.
 
 ---
 

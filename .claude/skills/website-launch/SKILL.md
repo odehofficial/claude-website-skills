@@ -171,6 +171,13 @@ Non-negotiable quality bar on every build:
 - Every image has meaningful `alt` text.
 - Forms show a loading state, a success state, and a failure state with a fallback phone number.
 - Page titles, meta descriptions, and Open Graph tags on every route.
+- **Built fast from the first line** — `next/image` with dimensions everywhere, exactly one `priority` image per page, `next/font`, Server Components by default, and map and booking embeds behind a click-to-load facade. Target 95+ Lighthouse on mobile.
+- **`LocalBusiness` and `FAQPage` structured data**, and one page per major service. This is what earns local ranking *and* what AI assistants quote.
+- **Every directional style written as a logical property** (`ms-`/`pe-`/`text-start`, never `ml-`/`pr-`/`text-left`) — costs nothing in English and means a right-to-left language works without a rewrite.
+
+**Read `references/performance-and-discovery.md` and follow it while building** — speed, search ranking, and AI-answer visibility are build requirements, not a later optimisation pass. A site that needs "speeding up" afterwards was built wrong.
+
+**If the site is in any language other than English, or in more than one, read `references/multilingual.md` before writing any page.** Retrofitting a language is a rewrite; deciding up front is free.
 
 **Then run the checks in `references/ui-quality.md` before showing anything to the user.** They cover the faults that make a build look amateur — images cropped through someone's face, a container's rounded corner not matching the image inside it, counter arrows sitting on top of a currency symbol, and stray browser-default controls. These are the flaws a client spots instantly and cannot name, and they are far cheaper to prevent than to fix after the fact.
 
@@ -200,6 +207,8 @@ Then produce the handover document from Step 15 of `references/deployment.md`.
 
 - `references/answer-format.md` — **the house format for every instruction. Read this first.**
 - `references/ui-quality.md` — visual faults to prevent on every build
+- `references/performance-and-discovery.md` — **speed, SEO, and AI-answer visibility. Build requirements, not an afterthought.**
+- `references/multilingual.md` — building in another language, and right-to-left done properly
 - `references/security-check.md` — **the pre-handover data-security audit. Required on every site.**
 - `references/deployment.md` — the click-by-click walkthrough, Step 1 to Step 15. The numbers match the progress chart above.
 - `references/integrations.md` — working code for the contact form, Resend, and Cal.com booking
