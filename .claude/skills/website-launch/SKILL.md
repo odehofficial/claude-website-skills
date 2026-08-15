@@ -30,33 +30,40 @@ The user must always know **where they are, what is done, and what comes next.**
 
 ### Show the chart in every message
 
-From the moment a build starts until the site is live, begin **every** reply with this, updated:
+**The chart must match the picture the user was shown.** They have seen one diagram with six columns, and nothing else. Use those six names, in that order, every time:
 
 ```
 **Your progress**
 
-| # | Step | |
-|---|------|---|
-| 1 | Install your tools | Done |
-| 2 | Create your accounts | Done |
-| 3 | Tell me about the business | Done |
-| 4 | Approve the design | **YOU ARE HERE** |
-| 5 | Build the website | — |
-| 6 | Preview it on your computer | — |
-| 7 | Save it to GitHub | — |
-| 8 | Put it on the internet | — |
-| 9 | Connect your domain | — |
-| 10 | Make the contact form work | — |
-| 11 | Add online booking | — |
-| 12 | Get found on Google | — |
-| 13 | Final checks | — |
-| 14 | Security check | — |
-| 15 | Hand over to the client | — |
+| | | |
+|---|---|---|
+| 1 | Install + skills | Done |
+| 2 | Free accounts | Done |
+| 3 | Build the site | Done |
+| 4 | Put it online | **YOU ARE HERE** — saving your work to GitHub |
+| 5 | Bookings | — |
+| 6 | Finish & hand over | — |
 ```
 
-Use those plain-language names, never the technical ones. The user should never have to interpret "Phase 5 — Resend domain verification".
+Name the specific task beside **YOU ARE HERE** so they know where they are *inside* that column. The six names never change; only the marker and the task beside it move.
+
+### Never say "module", "lesson", or "step 7"
+
+The user is not watching a course while they build — they are building, with one picture in front of them. Words like **module**, **lesson**, **video**, **chapter**, or a bare step number mean nothing to them and make it sound like they have missed something.
+
+| Never say | Say |
+|---|---|
+| "You're in Module 7" | "You're on **Put it online** — saving your work to GitHub" |
+| "That's covered in step 12" | "That comes under **Finish & hand over**, after this" |
+| "Skip to lesson 4" | "That's the **Build the site** part — we've done that" |
+
+The numbering inside `references/deployment.md` is **for you, not for them.** Use it to keep your own place; never read it out.
+
+**When they ask what comes next**, answer with the column name and the plain task: *"Next is putting it on the internet — that's Vercel, and it takes about two minutes."*
 
 Skip the chart only for short side conversations, then bring it back.
+
+**In Arabic**, the six names are: التثبيت والمهارات · الحسابات المجانية · بناء الموقع · نشر الموقع · الحجوزات · الإنهاء والتسليم
 
 ### Never mark a step done on your own say-so
 
@@ -169,21 +176,12 @@ Use these translations for the progress chart so it stays consistent between mes
 
 | English | العربية |
 |---|---|
-| Install your tools | تثبيت البرامج |
-| Create your accounts | إنشاء الحسابات |
-| Tell me about the business | معلومات عن النشاط التجاري |
-| Approve the design | الموافقة على التصميم |
-| Build the website | بناء الموقع |
-| Preview it on your computer | معاينة الموقع على جهازك |
-| Save it to GitHub | حفظ الموقع على GitHub |
-| Put it on the internet | نشر الموقع على الإنترنت |
-| Connect your domain | ربط اسم النطاق |
-| Make the contact form work | تفعيل نموذج التواصل |
-| Add online booking | إضافة الحجز الإلكتروني |
-| Get found on Google | الظهور على Google |
-| Final checks | الفحوصات النهائية |
-| Security check | فحص الأمان |
-| Hand over to the client | تسليم الموقع للعميل |
+| Install + skills | التثبيت والمهارات |
+| Free accounts | الحسابات المجانية |
+| Build the site | بناء الموقع |
+| Put it online | نشر الموقع |
+| Bookings | الحجوزات |
+| Finish & hand over | الإنهاء والتسليم |
 | **YOU ARE HERE** | **أنت هنا** |
 | Done | تم |
 | You should see: | من المفترض أن ترى: |
@@ -265,5 +263,5 @@ Then produce the handover document from Step 15 of `references/deployment.md`.
 - `references/performance-and-discovery.md` — **speed, SEO, and AI-answer visibility. Build requirements, not an afterthought.**
 - `references/multilingual.md` — building in another language, and right-to-left done properly
 - `references/security-check.md` — **the pre-handover data-security audit. Required on every site.**
-- `references/deployment.md` — the click-by-click walkthrough, Step 1 to Step 15. The numbers match the progress chart above.
+- `references/deployment.md` — the click-by-click walkthrough, Step 1 to Step 15. **Those numbers are yours, not theirs — never read them out.** They sit inside the six columns like this: Steps 1–2 → *Install + skills* and *Free accounts* · 3–6 → *Build the site* · 7–10 → *Put it online* · 11 → *Bookings* · 12–15 → *Finish & hand over*.
 - `references/integrations.md` — working code for the contact form, Resend, and Cal.com booking

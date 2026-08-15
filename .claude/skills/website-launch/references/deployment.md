@@ -10,6 +10,8 @@
 
 **Show the current step in full, and everything after it as headlines only.** Keep each step to one or two minutes of work.
 
+**The step numbers below are for you, not for the user.** They have seen one picture with six columns — *Install + skills · Free accounts · Build the site · Put it online · Bookings · Finish & hand over* — and nothing else. Never say "Step 8", "Module 7", or "lesson 3" to them. Say the column name and the plain task: *"You're on **Put it online** — this bit takes about two minutes."*
+
 ---
 
 # Step 1 — Install your tools

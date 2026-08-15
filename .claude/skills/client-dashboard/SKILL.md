@@ -19,18 +19,24 @@ Upgrades a brochure site into a system the business owner logs into and runs. Re
 
 This skill is entered from **Step 11 of `website-launch/references/deployment.md`**, at the point where booking is chosen. Everything before Step 11 is identical for every student. Everything after rejoins the same path.
 
-**Do not restart the progress chart.** Extend it. The student should see extra rows appear, not a new checklist:
+**Do not restart the progress chart, and do not renumber it.** The user has seen one picture with six columns. Keep those six, and show the extra work *inside* column 5:
 
 ```
-| 11 | Set up your database        | **YOU ARE HERE** |
-| 12 | Build the booking system    | — |
-| 13 | Build the owner's dashboard | — |
-| 14 | Test that data is private   | — |
-| 15 | Get found on Google         | — |
-| 16 | Final checks                | — |
-| 17 | Security check              | — |
-| 18 | Hand over to the client     | — |
+**Your progress**
+
+| | | |
+|---|---|---|
+| 1 | Install + skills | Done |
+| 2 | Free accounts | Done |
+| 3 | Build the site | Done |
+| 4 | Put it online | Done |
+| 5 | Bookings | **YOU ARE HERE** — setting up the database |
+| 6 | Finish & hand over | — |
 ```
+
+Move the note beside **YOU ARE HERE** as you go: *setting up the database* → *building the booking system* → *building the dashboard* → *testing that data is private*.
+
+**Never say "module", "lesson", or a bare step number** — see `website-launch/SKILL.md` for why. The user is building, not watching a course.
 
 Every rule from `website-launch` still applies here. In particular, **write every instruction in the house format from `website-launch/references/answer-format.md`** — deep links carrying the user's own Supabase project ref, buttons named exactly with their colour, both keyboard shortcuts, exact SQL to paste in code format, and a literal `You should see:` closing every task.
 
