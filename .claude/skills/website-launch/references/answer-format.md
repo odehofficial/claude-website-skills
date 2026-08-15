@@ -4,6 +4,17 @@
 
 The user is a beginner who has never used these dashboards. They should never have to search a screen, guess which button, or wonder whether it worked.
 
+## Rule zero — short
+
+Detail belongs in the **numbered actions**, never in prose around them.
+
+- Under 80 words outside the numbered actions
+- No paragraphs, no preamble, no recap
+- No "you could also", no "would you like me to"
+- Stop at the check question
+
+Being precise about a button is not the same as being wordy. `Blue button **Commit to main**, bottom left` is precise *and* short. A paragraph explaining what committing means is neither.
+
 ---
 
 ## The shape

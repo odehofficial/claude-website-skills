@@ -38,7 +38,7 @@ Move the note beside **YOU ARE HERE** as you go: *setting up the database* → *
 
 **Never say "module", "lesson", or a bare step number** — see `website-launch/SKILL.md` for why. The user is building, not watching a course.
 
-Every rule from `website-launch` still applies here. In particular, **write every instruction in the house format from `website-launch/references/answer-format.md`** — deep links carrying the user's own Supabase project ref, buttons named exactly with their colour, both keyboard shortcuts, exact SQL to paste in code format, and a literal `You should see:` closing every task.
+Every rule from `website-launch` still applies here — **especially answering short.** This is the most technical part of the build, which makes it the easiest place to start lecturing. Do not. Databases and security rules get the same treatment as everything else: numbered actions, a visible check, stop. In particular, **write every instruction in the house format from `website-launch/references/answer-format.md`** — deep links carrying the user's own Supabase project ref, buttons named exactly with their colour, both keyboard shortcuts, exact SQL to paste in code format, and a literal `You should see:` closing every task.
 
 ## Stack addition
 
