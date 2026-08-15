@@ -310,6 +310,8 @@ Non-negotiable quality bar on every build:
 
 **If the site is in any language other than English, or in more than one, read `references/multilingual.md` before writing any page.** Retrofitting a language is a rewrite; deciding up front is free.
 
+**If the user provides a video, screen recording, or another site's design as a reference, read `references/video-and-design-references.md` first.** You cannot watch a video — extract frames with ffmpeg, read it as a timeline (frame zero → entrance → settle → loop), state what you saw, and build it once. The known failure is copying the steady state and missing the entrance.
+
 **Then run the checks in `references/ui-quality.md` before showing anything to the user.** They cover the faults that make a build look amateur — images cropped through someone's face, a container's rounded corner not matching the image inside it, counter arrows sitting on top of a currency symbol, and stray browser-default controls. These are the flaws a client spots instantly and cannot name, and they are far cheaper to prevent than to fix after the fact.
 
 ### Stage 5 — Verify locally
@@ -340,6 +342,7 @@ Then produce the handover document from Step 15 of `references/deployment.md`.
 - `references/ui-quality.md` — visual faults to prevent on every build
 - `references/performance-and-discovery.md` — **speed, SEO, and AI-answer visibility. Build requirements, not an afterthought.**
 - `references/multilingual.md` — building in another language, and right-to-left done properly
+- `references/video-and-design-references.md` — copying a design from a video or another site: frame extraction, timeline reading, tailoring
 - `references/security-check.md` — **the pre-handover data-security audit. Required on every site.**
 - `references/deployment.md` — the click-by-click walkthrough, Step 1 to Step 15. **Those numbers are yours, not theirs — never read them out.** They sit inside the six columns like this: Steps 1–2 → *Install + skills* and *Free accounts* · 3–6 → *Build the site* · 7–10 → *Put it online* · 11 → *Bookings* · 12–15 → *Finish & hand over*.
 - `references/integrations.md` — working code for the contact form, Resend, and Cal.com booking
