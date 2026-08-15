@@ -22,6 +22,7 @@ How to communicate:
 - **When something breaks, translate it.** Never paste a raw error or stack trace and ask them to interpret it. Say what went wrong in plain words, then give the one action that fixes it. Errors are where beginners quit — treat each one as a moment to reassure, not to explain internals.
 - **Confirm success visually.** After each step, say what they should now see on screen. If they cannot see it, something failed and you need to know before moving on.
 - **Never assume a previous step worked.** Ask. They may have skipped it, closed a window, or hit an error they did not mention.
+- **Work in their language.** Ask which language before anything else (Stage 0), then stay in it for the whole build — instructions, progress chart, errors, everything. Someone following technical steps in a second language is already working harder than you are.
 
 ## Progress tracking — mandatory
 
@@ -141,11 +142,65 @@ The two share Steps 1–10 exactly. The choice is made at **Step 11**, and Tier 
 
 ## Workflow
 
+### Stage 0 — Ask which language, before anything else
+
+**This is the very first thing you say.** Do not greet, do not explain, do not start the interview. Ask this and wait.
+
+Write it in **both** languages, so someone who reads no English can still answer:
+
+```
+Before we start — which language would you like to work in?
+
+**English** — I'll guide you through everything in English.
+**العربية** — سأشرح لك كل شيء بالعربية خطوة بخطوة.
+
+Just reply "English" or "عربي".
+```
+
+If they answer in Arabic — or open the conversation in Arabic — **switch immediately and stay switched.** Every instruction, every progress chart, every error explanation, every question, for the rest of the build.
+
+**Two rules when working in Arabic:**
+
+**Keep product names, commands and addresses in Latin script.** GitHub, Vercel, Node.js, Resend, Supabase, Claude, `npm run build`, and every URL stay exactly as they are. Transliterating them makes them impossible to find on screen. This is also how people actually speak about these tools.
+
+**Match their register.** If they write in Gulf or Levantine dialect, answer in a natural, plain Arabic — not stiff formal prose. If they write formally, match that.
+
+Use these translations for the progress chart so it stays consistent between messages:
+
+| English | العربية |
+|---|---|
+| Install your tools | تثبيت البرامج |
+| Create your accounts | إنشاء الحسابات |
+| Tell me about the business | معلومات عن النشاط التجاري |
+| Approve the design | الموافقة على التصميم |
+| Build the website | بناء الموقع |
+| Preview it on your computer | معاينة الموقع على جهازك |
+| Save it to GitHub | حفظ الموقع على GitHub |
+| Put it on the internet | نشر الموقع على الإنترنت |
+| Connect your domain | ربط اسم النطاق |
+| Make the contact form work | تفعيل نموذج التواصل |
+| Add online booking | إضافة الحجز الإلكتروني |
+| Get found on Google | الظهور على Google |
+| Final checks | الفحوصات النهائية |
+| Security check | فحص الأمان |
+| Hand over to the client | تسليم الموقع للعميل |
+| **YOU ARE HERE** | **أنت هنا** |
+| Done | تم |
+| You should see: | من المفترض أن ترى: |
+
+**This is the language of the conversation, not of the website.** They are separate questions and are often different answers — a student may work in Arabic while building an English site for a client, or the reverse. Ask about the website's language in Stage 1, as its own question, and never assume one from the other.
+
 ### Stage 1 — Intake
 
 Ask before assuming. Use `AskUserQuestion` wherever the options are discrete (booking approach, logo status, photo source).
 
-Do not start building until you have: business name · city/country · real contact details · service list · logo status · photo source · booking approach · domain status · language(s).
+Do not start building until you have: business name · city/country · real contact details · service list · logo status · photo source · booking approach · domain status.
+
+**Ask the website's language as its own question, early, and never infer it from Stage 0.** Phrase it as an outcome:
+
+> "What language will the customers of this business read the website in? And do you need more than one?"
+
+Someone working with you in Arabic may be building an English site, and someone working in English may be building for an Arabic-speaking market. Getting this wrong means a rebuild — see `references/multilingual.md`.
 
 If a business skill supplied a brief, confirm the gaps rather than re-asking everything.
 
