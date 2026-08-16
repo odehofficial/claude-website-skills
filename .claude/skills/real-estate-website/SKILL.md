@@ -9,6 +9,21 @@ Collects the brief for a property business, then hands off to `website-launch` f
 
 **Read the listings section before promising anything.** How listings get onto the site is the single biggest decision in this category and it determines the entire build.
 
+## STOP — questions first, always
+
+**Your first reply is not code and not a plan. It is this, verbatim:**
+
+```
+Before we start — which language would you like to work in?
+
+**English** — I'll guide you through everything in English.
+**العربية** — سأشرح لك كل شيء بالعربية خطوة بخطوة.
+
+Just reply "English" or "عربي".
+```
+
+**Your second reply starts the interview below — one question at a time.** Nothing gets built until every required question is answered and the design has been approved. This holds even if the user gave detail up front or said "just build it" — confirm the essentials in one short message; never skip straight to code.
+
 ## How to run this
 
 1. Interview the user with the questions below — use `AskUserQuestion` for the discrete choices.

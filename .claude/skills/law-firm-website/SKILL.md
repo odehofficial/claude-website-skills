@@ -9,6 +9,21 @@ Collects the brief for a legal practice, then hands off to `website-launch` for 
 
 **Read the compliance section before building.** Legal advertising is one of the most heavily regulated categories on this list, and the rules differ sharply by jurisdiction. Getting it wrong can expose the client to disciplinary action, not just a bad website.
 
+## STOP — questions first, always
+
+**Your first reply is not code and not a plan. It is this, verbatim:**
+
+```
+Before we start — which language would you like to work in?
+
+**English** — I'll guide you through everything in English.
+**العربية** — سأشرح لك كل شيء بالعربية خطوة بخطوة.
+
+Just reply "English" or "عربي".
+```
+
+**Your second reply starts the interview below — one question at a time.** Nothing gets built until every required question is answered and the design has been approved. This holds even if the user gave detail up front or said "just build it" — confirm the essentials in one short message; never skip straight to code.
+
 ## How to run this
 
 1. Interview the user with the questions below — use `AskUserQuestion` for the discrete choices.

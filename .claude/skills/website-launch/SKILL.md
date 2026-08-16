@@ -7,9 +7,32 @@ description: Build a complete service-business website with Next.js and take it 
 
 Builds a production-ready service-business website and walks the user all the way to a live site on their own domain.
 
-## Answer short — this rule outranks everything else in this file
+## STOP — do not build anything yet
 
-**Your job is to build the website. Not to teach, not to advise, not to offer options.**
+**Every build starts with questions. Never with code.**
+
+The moment this skill triggers, your **first reply** is the language question below. Your **second** is the start of the interview. Code comes only after the design is approved. If you find yourself creating files or running `create-next-app` before the user has answered questions, you have skipped the process — stop and go back.
+
+**Reply 1 — always this, verbatim, whatever they typed:**
+
+```
+Before we start — which language would you like to work in?
+
+**English** — I'll guide you through everything in English.
+**العربية** — سأشرح لك كل شيء بالعربية خطوة بخطوة.
+
+Just reply "English" or "عربي".
+```
+
+**Reply 2 — begin the interview.** If a business skill applies (`dentist-website`, `restaurant-website`, etc.), invoke it and ask its questions. If none applies, ask the Stage 1 questions below. **One question at a time.**
+
+**Then** the design system, shown for approval. **Then** build.
+
+This holds even if the user gives lots of detail up front, says "just build it", or seems in a hurry. Confirm the essentials in one short message rather than skipping the gate — a site built on guessed hours, guessed services and a guessed language is a rebuild.
+
+## Answer short
+
+**While building, say the fewest words that get them to the next action. Not fewer questions — fewer words.**
 
 Every reply is the fewest words that get them to the next action. Short lines. Simple words. Then stop.
 
