@@ -1,6 +1,6 @@
 # Claude Website Skills
 
-Ten skills that take Claude Code from *"build me a website for a dental clinic"* all the way to a live site on a real domain — with working contact email and online booking.
+Eleven skills that take Claude Code from *"build me a website for a dental clinic"* all the way to a live site on a real domain — with working contact email and online booking.
 
 Each skill knows the industry: what converts, what the page structure should be, and which legal and compliance rules apply. You answer questions; Claude builds and then walks you through going live, one step at a time.
 
@@ -20,6 +20,7 @@ Each skill knows the industry: what converts, what the page structure should be,
 | `home-services-website` | Plumbers, electricians, HVAC, cleaning, handyman, landscaping |
 | `consultant-website` | Consultants, coaches, freelancers, agencies |
 | `ecommerce-website` | Small online stores (read the scope warning inside first) |
+| `pricing-quote` | Turns a client brief into a priced quote and a one-page proposal, by country and industry |
 | `client-dashboard` | **Optional upgrade.** Adds a booking system your client owns plus a private login where they manage appointments and enquiries themselves |
 
 **Stack:** Next.js + Tailwind, hosted on Vercel, email via Resend, booking via Cal.com. Fixed on purpose, so one deployment roadmap always applies.
